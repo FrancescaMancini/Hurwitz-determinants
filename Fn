@@ -1,0 +1,5 @@
+#Function that calculates the feedback levels of a square matrix
+#n is the level of feedback to calculate
+#CM is the square matrix
+
+Fn<-function(n,CM) {-charpoly(CM)[[n+1]]}
