@@ -1,0 +1,17 @@
+#function to calculate Hurwitz determinants of a square matrix
+#CM is the square matrix 
+#n represents which Hurwitz determinant to calculate (from n=1 to n=ncol(CM)=nrow(CM))
+#the function builds the Hurwitz matrix and then calculates the determinant
+#the function returns a number
+
+HurwDet<-function(n,CM){
+hurwmat<-matrix(0,n,n)
+s<-seq(from=(2*n)-2,to=0,by=-2)
+
+for(j in n:1){
+for(i in 0:(n-1)) {
+ if(((2*(n-s[j]))-((n-s[j])-i))>n|((2*(n-s[j]))-((n-s[j])-i))<0){hurwmat[n-i,j]<-0}
+else{
+hurwmat[n-i,j]<-(-Fn((2*(n-s[j]))-((n-s[j])-i),CM))}}
+}
+print(det(hurwmat))}
